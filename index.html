@@ -1,350 +1,325 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>MKTG1485 CX Strategy — Persona</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MKTG1485 — CX Persona Template</title>
 
-<style>
-  :root{
-    --rmit-blue:#0d1b4c;
-    --rmit-red:#c71f23;
-    --rmit-grey:#f6f6f6;
-    --line:#e6e6e6;
-    --ink:#1b1b1b;
-    --muted:#6b7280;
-    --bg:#ffffff;
-  }
-  html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif;}
-  .wrap{max-width:1100px;margin:24px auto;padding:0 16px 64px;}
-  .kicker{font-size:14px;color:var(--muted);margin:0 0 6px;}
-  h1{margin:0 0 12px;color:var(--rmit-blue);font-size:28px;font-weight:700;}
+  <style>
+    :root{
+      --rmit-blue:#0d1b4c;
+      --rmit-red:#c71f23;
+      --rmit-grey:#f6f6f6;
+      --ink:#1c1c1c;
+      --line:#e6e6e6;
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --radius:12px;
+    }
 
-  /* Buttons / toolbar */
-  .toolbar{display:flex;gap:10px;align-items:center;margin:10px 0 18px}
-  .btn{background:var(--rmit-blue);color:#fff;border:none;border-radius:10px;padding:10px 14px;font-size:14px;cursor:pointer}
-  .btn.alt{background:#fff;color:var(--ink);border:1px solid var(--line)}
-  .hint{margin-left:auto;color:var(--muted);font-size:12px}
+    html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+    .wrap{max-width:1100px;margin:28px auto;padding:0 16px 64px}
 
-  /* ID card */
-  .card{
-    display:grid;gap:16px;align-items:start;
-    grid-template-columns:160px 1fr;
-    background:var(--rmit-grey);border:1px solid var(--line);border-radius:12px;padding:14px;
-  }
-  .photo{
-    width:160px;height:160px;border-radius:12px;background:#fff;border:1px dashed var(--line);
-    display:flex;align-items:center;justify-content:center;overflow:hidden;
-  }
-  .photo img{width:100%;height:100%;object-fit:cover}
-  .upload{margin-top:8px}
-  .upload input{font-size:12px}
+    /* Kicker + title */
+    .kicker{font-size:12px;color:var(--muted);letter-spacing:.2px;margin:0 0 6px}
+    h1{margin:0 0 18px;color:var(--rmit-blue);font-size:26px}
 
-  .ident{display:grid;gap:10px}
-  .grid-3{display:grid;gap:10px;grid-template-columns:repeat(3,1fr)}
-  .grid-2{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
-  .field{display:flex;flex-direction:column;gap:6px}
-  .field label{font-size:12px;color:var(--muted)}
-  .field input{border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:14px}
-  .field input:focus{border-color:var(--rmit-blue);box-shadow:0 0 0 2px rgba(13,27,76,.1)}
-  .quote{font-style:italic;color:#444}
+    /* Header card */
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+    .row{display:grid;gap:12px;grid-template-columns:1fr 1fr 1fr}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .label{font-size:13px;color:var(--muted)}
+    .input, .textarea{
+      border:1px solid var(--line);border-radius:10px;background:#fff;
+      padding:10px 12px;font-size:14px;outline:none
+    }
+    .input:focus,.textarea:focus{border-color:var(--rmit-blue);box-shadow:0 0 0 2px rgba(13,27,76,.08)}
 
-  /* Sections */
-  .section{margin-top:16px;border:1px solid var(--line);border-radius:12px;background:#fff}
-  .section h2{margin:0;padding:12px 14px;border-bottom:1px solid var(--line);font-size:18px;color:var(--rmit-blue)}
-  .sub{margin:0;color:var(--muted);font-size:12px;padding:0 14px 6px}
-  .body{padding:14px}
-  textarea{
-    width:100%;min-height:160px;resize:vertical;border:1px solid var(--line);
-    border-radius:8px;padding:10px 12px;font-size:13.5px;line-height:1.5;outline:none;background:#fff;
-  }
-  textarea.sm{min-height:120px}
-  textarea:focus{border-color:var(--rmit-blue);box-shadow:0 0 0 2px rgba(13,27,76,.08)}
+    /* Section titles */
+    .section{margin-top:22px}
+    .section h2{font-size:18px;color:var(--rmit-blue);margin:0 0 10px}
 
-  .cols{display:grid;gap:12px;grid-template-columns:1fr 1fr}
-  .grid-4{display:grid;gap:12px;grid-template-columns:repeat(4,1fr)}
+    /* Two-column grid with equal row heights */
+    .pair-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(280px,1fr));gap:14px;
+      align-items:stretch;grid-auto-rows:1fr;
+    }
+    .field.cardish{height:100%;border:1px solid var(--line);border-radius:var(--radius);padding:12px;background:#fff}
+    .field.cardish .title{font-weight:700;color:var(--rmit-red);margin:0 0 4px}
+    .field.cardish .hint{font-size:12px;color:var(--muted);margin:0 0 8px}
+    .field.cardish .textarea{flex:1;min-height:180px;resize:vertical}
 
-  /* Evidence tags */
-  .tags{margin-top:16px;border:1px dashed var(--line);border-radius:12px;padding:12px;background:#fff}
-  .tags h3{margin:0 0 6px;color:var(--rmit-blue);font-size:16px}
-  .tags p{margin:0 0 8px;color:var(--muted);font-size:12px}
-  .tag-grid{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:8px}
-  .tag-grid input{border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:12px;min-height:34px}
+    /* Evidence tags */
+    .evidence{margin-top:18px;border:1px dashed var(--line);border-radius:var(--radius);padding:12px;background:var(--bg)}
+    .evidence h3{margin:0 0 6px;color:var(--rmit-blue);font-size:16px}
+    .evidence p{margin:0 0 8px;color:var(--muted);font-size:12px}
+    .tag-grid{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:8px}
+    .tag-grid input{border:1px solid var(--line);border-radius:8px;padding:8px;font-size:12px;min-height:34px}
 
-  .foot{margin-top:20px;color:var(--muted);font-size:12px}
+    /* Toolbar */
+    .toolbar{display:flex;gap:10px;align-items:center;margin:16px 0}
+    .btn{
+      background:var(--rmit-blue);color:#fff;border:none;border-radius:10px;
+      padding:10px 14px;font-size:14px;cursor:pointer
+    }
+    .btn.alt{background:#fff;color:var(--ink);border:1px solid var(--line)}
+    .btn:disabled{opacity:.4;cursor:not-allowed}
 
-  @media (max-width:980px){
-    .card{grid-template-columns:1fr}
-    .grid-3,.grid-2,.cols,.grid-4{grid-template-columns:1fr}
-  }
-</style>
+    .muted{font-size:12px;color:var(--muted)}
+    @media (max-width:980px){
+      .row{grid-template-columns:1fr}
+      .pair-grid{grid-template-columns:1fr}
+      .tag-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (min-width:981px) and (max-width:1200px){
+      .tag-grid{grid-template-columns:repeat(4,1fr)}
+    }
+  </style>
 </head>
 <body>
   <div class="wrap">
     <p class="kicker">MKTG1485 Customer Experience Strategy</p>
-    <h1>CX Persona (one per page)</h1>
+    <h1>Customer Persona</h1>
 
-    <div class="toolbar">
-      <button class="btn" id="exportBtn">Export to Word</button>
-      <button class="btn alt" id="clearBtn">Clear all</button>
-      <span class="hint">Base every statement on evidence. Use tags.</span>
+    <!-- Header: identity + logistics -->
+    <div class="card">
+      <div class="row">
+        <div class="field">
+          <div class="label">Persona name</div>
+          <input id="p_name" class="input" placeholder="e.g. Night‑shift nurse commuter"/>
+        </div>
+        <div class="field">
+          <div class="label">Team or student name</div>
+          <input id="p_team" class="input" placeholder="e.g. Team 7 — Journey Ninjas"/>
+        </div>
+        <div class="field">
+          <div class="label">Date</div>
+          <input id="p_date" type="date" class="input"/>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:10px;">
+        <div class="field">
+          <div class="label">Key customer quote</div>
+          <input id="p_quote" class="input" placeholder='"A short, telling quote that captures their mindset."'/>
+        </div>
+        <div class="field">
+          <div class="label">Photo URL (optional)</div>
+          <input id="p_photo" class="input" placeholder="Link to a representative image (no faces if real people)"/>
+        </div>
+        <div class="field">
+          <div class="label">Demographic sketch (only if relevant)</div>
+          <input id="p_demo" class="input" placeholder="Life stage or constraints that affect behaviour (keep minimal)"/>
+        </div>
+      </div>
     </div>
 
-    <!-- Persona ID card -->
-    <section class="card" aria-label="Persona identity">
-      <div>
-        <div class="photo" id="photoBox"><span style="font-size:12px;color:#999">Add photo</span></div>
-        <div class="upload"><input id="photoInput" type="file" accept="image/*"></div>
-      </div>
+    <div class="toolbar">
+      <button id="export" class="btn">Export to Word</button>
+      <button id="save" class="btn alt">Save (browser)</button>
+      <button id="load" class="btn alt">Load</button>
+      <button id="clear" class="btn alt">Clear</button>
+      <span class="muted" style="margin-left:auto">Your data stays in your browser until you export.</span>
+    </div>
 
-      <div class="ident">
-        <div class="grid-3">
-          <div class="field">
-            <label for="personaName">Persona name</label>
-            <input id="personaName" placeholder="e.g. Mia Tran" />
-          </div>
-          <div class="field">
-            <label for="behLabel">Behavioural label</label>
-            <input id="behLabel" placeholder="e.g. Time‑poor commuter" />
-          </div>
-          <div class="field">
-            <label for="date">Date</label>
-            <input id="date" type="date" />
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <div class="field"><label for="age">Age</label><input id="age" placeholder="e.g. 28" /></div>
-          <div class="field"><label for="pronouns">Pronouns</label><input id="pronouns" placeholder="e.g. she/her" /></div>
-          <div class="field"><label for="location">Location (City/Region)</label><input id="location" placeholder="e.g. Footscray, VIC" /></div>
-        </div>
-
-        <div class="grid-3">
-          <div class="field"><label for="role">Occupation / employment</label><input id="role" placeholder="e.g. Registered nurse (night shifts)" /></div>
-          <div class="field"><label for="language">Language(s)</label><input id="language" placeholder="e.g. English, Vietnamese" /></div>
-          <div class="field"><label for="household">Household context</label><input id="household" placeholder="e.g. Lives with partner; 1 car" /></div>
-        </div>
-
-        <div class="field">
-          <label for="quote">Key customer quote</label>
-          <input id="quote" class="quote" placeholder="“Short quote that captures mindset…”" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Background & story (helps the Why) -->
-    <section class="section">
-      <h2>Background & story</h2>
-      <p class="sub">Brief life context shaping behaviour. Stick to evidence from interviews/surveys; avoid stereotypes.</p>
-      <div class="body"><textarea id="background"></textarea></div>
-    </section>
-
-    <!-- Core CX fields to power journey mapping -->
-    <section class="section">
+    <!-- Goals, context, routines -->
+    <div class="section">
       <h2>Goals, context and routines</h2>
-      <div class="body cols">
-        <div>
-          <h3 style="margin:0 0 6px;color:var(--rmit-red);font-size:16px;">Primary goal</h3>
-          <p class="sub">What they want to achieve.</p>
-          <textarea id="primaryGoal"></textarea>
-          <h3 style="margin:14px 0 6px;color:var(--rmit-red);font-size:16px;">Context & scenario</h3>
-          <p class="sub">When and why they engage.</p>
-          <textarea id="context"></textarea>
-          <h3 style="margin:14px 0 6px;color:var(--rmit-red);font-size:16px;">Behaviours & routines</h3>
-          <p class="sub">Decision approach, key habits, channel use, information sources.</p>
-          <textarea id="behaviours"></textarea>
+      <div class="pair-grid">
+        <div class="field cardish">
+          <div class="title">Primary goal</div>
+          <div class="hint">What they want to achieve.</div>
+          <textarea id="goal" class="textarea" placeholder="Describe the core outcome the persona is trying to achieve and why it matters."></textarea>
         </div>
-        <div>
-          <h3 style="margin:0 0 6px;color:var(--rmit-red);font-size:16px;">Pain points</h3>
-          <p class="sub">Main frustrations.</p>
-          <textarea id="pains"></textarea>
-          <h3 style="margin:14px 0 6px;color:var(--rmit-red);font-size:16px;">Success criteria</h3>
-          <p class="sub">How they judge success.</p>
-          <textarea id="success"></textarea>
-          <h3 style="margin:14px 0 6px;color:var(--rmit-red);font-size:16px;">Media & technology</h3>
-          <p class="sub">Preferred devices, platforms, usage patterns; accessibility needs.</p>
-          <textarea id="mediaTech"></textarea>
+        <div class="field cardish">
+          <div class="title">Pain points</div>
+          <div class="hint">Main frustrations.</div>
+          <textarea id="pains" class="textarea" placeholder="List the key friction points that block progress or cause stress."></textarea>
         </div>
-      </div>
-      <div class="body">
-        <div class="cols">
-          <div>
-            <h3 style="margin:0 0 6px;color:var(--rmit-red);font-size:16px;">Category use</h3>
-            <p class="sub">Frequency and preferred companies/brands.</p>
-            <textarea id="categoryUse" class="sm"></textarea>
-          </div>
-          <div>
-            <h3 style="margin:0 0 6px;color:var(--rmit-red);font-size:16px;">Triggers & moments</h3>
-            <p class="sub">Events that start the journey; moments of truth.</p>
-            <textarea id="triggers" class="sm"></textarea>
-          </div>
+
+        <div class="field cardish">
+          <div class="title">Context &amp; scenario</div>
+          <div class="hint">When and why they engage.</div>
+          <textarea id="context" class="textarea" placeholder="Outline situations and triggers that lead them to engage with the service."></textarea>
+        </div>
+        <div class="field cardish">
+          <div class="title">Success criteria</div>
+          <div class="hint">How they judge success.</div>
+          <textarea id="success" class="textarea" placeholder="How will this persona decide their goal has been achieved? What proof do they need?"></textarea>
+        </div>
+
+        <div class="field cardish">
+          <div class="title">Behaviours &amp; routines</div>
+          <div class="hint">Decision approach, key habits, channel use, information sources.</div>
+          <textarea id="behaviours" class="textarea" placeholder="Decision style, repeat behaviours, time constraints, who influences them, where they look for information."></textarea>
+        </div>
+        <div class="field cardish">
+          <div class="title">Media &amp; technology</div>
+          <div class="hint">Preferred devices, platforms, usage patterns; accessibility needs.</div>
+          <textarea id="media" class="textarea" placeholder="Primary devices, platforms and usage windows. Note any accessibility needs."></textarea>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Attitudes / motivations (handy for journey assumptions) -->
-    <section class="section">
-      <h2>Attitudes, motivations & barriers</h2>
-      <div class="body cols">
-        <textarea id="motivations" placeholder="Core motivations, values, what keeps them going."></textarea>
-        <textarea id="barriers" placeholder="Barriers and risks (knowledge, trust, language, time, money, accessibility)."></textarea>
+    <!-- Decision influences and category use -->
+    <div class="section">
+      <h2>Decision influences and category use</h2>
+      <div class="pair-grid">
+        <div class="field cardish">
+          <div class="title">Motivators &amp; barriers</div>
+          <div class="hint">What moves them forward or holds them back.</div>
+          <textarea id="motivation" class="textarea" placeholder="Emotional triggers, risk perceptions, social proof, cost–benefit trade‑offs."></textarea>
+        </div>
+        <div class="field cardish">
+          <div class="title">Category use</div>
+          <div class="hint">Frequency and preferred companies/brands.</div>
+          <textarea id="category" class="textarea" placeholder="How often they use this category, typical spend, preferred brands and why."></textarea>
+        </div>
+
+        <div class="field cardish">
+          <div class="title">Accessibility &amp; constraints</div>
+          <div class="hint">Time, physical, digital or policy constraints that affect behaviour.</div>
+          <textarea id="constraints" class="textarea" placeholder="Shift patterns, carer duties, transport, device or data limits, language, paperwork, eligibility rules."></textarea>
+        </div>
+        <div class="field cardish">
+          <div class="title">Moments of truth</div>
+          <div class="hint">High‑stakes interactions where impressions are formed.</div>
+          <textarea id="moments" class="textarea" placeholder="Define the interactions that most strongly influence trust or drop‑off."></textarea>
+        </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Communication preferences for channel mapping -->
-    <section class="section">
-      <h2>Communication preferences</h2>
-      <p class="sub">Tone, timing, languages, proof/trust signals they need before acting.</p>
-      <div class="body"><textarea id="commPref" class="sm"></textarea></div>
-    </section>
+    <!-- Evidence -->
+    <div class="section">
+      <h2>Evidence &amp; traceability</h2>
+      <div class="evidence">
+        <h3>Evidence tags</h3>
+        <p>Reference the sources behind your persona. Use consistent tags such as <strong>INT‑01</strong> (interview), <strong>SUR‑07</strong> (survey), <strong>SEC‑03</strong> (secondary).</p>
+        <div id="tagGrid" class="tag-grid"></div>
+      </div>
+    </div>
 
-    <!-- Evidence tags -->
-    <section class="tags">
-      <h3>Evidence sources / tags</h3>
-      <p>Link each fact to evidence. Use a consistent format (e.g., INT‑03, SUR‑12, SEC‑04). Up to 20 tags.</p>
-      <div class="tag-grid" id="tagGrid"></div>
-    </section>
-
-    <p class="foot">Tip: If a statement cannot be tagged, either mark it as an assumption for testing or exclude it.</p>
+    <p class="muted" style="margin-top:16px">Tip: only include information you can support with evidence. If it is not evidenced, mark it as an assumption for later validation.</p>
   </div>
 
-<script>
-  // --- Photo upload ---
-  const photoInput = document.getElementById('photoInput');
-  const photoBox = document.getElementById('photoBox');
-  let photoDataURL = '';
-  photoInput.addEventListener('change', (e)=>{
-    const f = e.target.files && e.target.files[0];
-    if(!f) return;
-    const reader = new FileReader();
-    reader.onload = ()=> {
-      photoDataURL = reader.result;
-      photoBox.innerHTML = '';
-      const img = document.createElement('img');
-      img.alt = 'Persona photo';
-      img.src = photoDataURL;
-      photoBox.appendChild(img);
-    };
-    reader.readAsDataURL(f);
-  });
+  <script>
+    // Build 20 evidence tag inputs
+    (function(){
+      const grid = document.getElementById('tagGrid');
+      for(let i=1;i<=20;i++){
+        const inp = document.createElement('input');
+        inp.placeholder = `Tag ${i} e.g. ${i<10?'INT‑0'+i:'INT‑'+i}`;
+        grid.appendChild(inp);
+      }
+    })();
 
-  // --- Evidence tags inputs (20) ---
-  (function buildTags(){
-    const grid = document.getElementById('tagGrid');
-    for(let i=1;i<=20;i++){
-      const inp = document.createElement('input');
-      inp.placeholder = `Tag ${i} e.g. INT‑0${Math.min(i,9)}`;
-      grid.appendChild(inp);
+    // Save / Load / Clear (localStorage)
+    const fields = [
+      'p_name','p_team','p_date','p_quote','p_photo','p_demo',
+      'goal','pains','context','success','behaviours','media',
+      'motivation','category','constraints','moments'
+    ];
+
+    function getState(){
+      const data = {};
+      fields.forEach(id=>data[id] = (document.getElementById(id).value||''));
+      data.tags = Array.from(document.querySelectorAll('#tagGrid input')).map(i=>i.value||'');
+      return data;
     }
-  })();
 
-  // --- Clear all ---
-  document.getElementById('clearBtn').addEventListener('click', ()=>{
-    document.querySelectorAll('input, textarea').forEach(el=>{
-      if(el.type === 'file') { el.value = ''; return; }
-      el.value = '';
+    function setState(data){
+      if(!data) return;
+      fields.forEach(id=>{
+        if(Object.prototype.hasOwnProperty.call(data,id)){
+          document.getElementById(id).value = data[id]||'';
+        }
+      });
+      if(Array.isArray(data.tags)){
+        const inputs = document.querySelectorAll('#tagGrid input');
+        inputs.forEach((inp,idx)=>{inp.value = data.tags[idx]||'';});
+      }
+    }
+
+    document.getElementById('save').addEventListener('click',()=>{
+      localStorage.setItem('cx_persona_v1', JSON.stringify(getState()));
+      alert('Saved in this browser.');
     });
-    photoBox.innerHTML = '<span style="font-size:12px;color:#999">Add photo</span>';
-    photoDataURL = '';
-    window.scrollTo({top:0,behavior:'smooth'});
-  });
 
-  // --- Export to Word (.doc with embedded HTML) ---
-  document.getElementById('exportBtn').addEventListener('click', ()=>{
-    // Gather identity
-    const name = document.getElementById('personaName').value || 'Persona';
-    const behLabel = document.getElementById('behLabel').value || '';
-    const date = document.getElementById('date').value || '';
-    const age = document.getElementById('age').value || '';
-    const pronouns = document.getElementById('pronouns').value || '';
-    const location = document.getElementById('location').value || '';
-    const role = document.getElementById('role').value || '';
-    const language = document.getElementById('language').value || '';
-    const household = document.getElementById('household').value || '';
-    const quote = document.getElementById('quote').value || '';
+    document.getElementById('load').addEventListener('click',()=>{
+      const raw = localStorage.getItem('cx_persona_v1');
+      if(!raw){ alert('No saved data found.'); return; }
+      try{ setState(JSON.parse(raw)); }catch(e){ alert('Could not load saved data.'); }
+    });
 
-    // Helper to capture textareas as HTML paragraphs
-    function field(id){
-      const el = document.getElementById(id);
-      const v = (el && el.value || '').trim();
-      return v ? v.replace(/\n/g,'<br>') : '<em style="color:#777">—</em>';
-    }
+    document.getElementById('clear').addEventListener('click',()=>{
+      if(confirm('Clear all fields?')){ setState({tags:[]}); fields.forEach(id=>document.getElementById(id).value=''); document.querySelectorAll('#tagGrid input').forEach(i=>i.value=''); }
+    });
 
-    // Evidence tags
-    const tags = Array.from(document.querySelectorAll('#tagGrid input'))
-      .map(i=>i.value.trim()).filter(Boolean).map(t=>`<span style="display:inline-block;border:1px solid #ddd;border-radius:6px;padding:3px 6px;margin:2px 4px;font-size:11px">${t}</span>`).join('');
+    // Export to Word
+    document.getElementById('export').addEventListener('click', ()=>{
+      const data = getState();
 
-    const html = `
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>${name} — Persona</title>
+      // Build simple header with optional photo
+      const photo = (data.p_photo||'').trim();
+      const photoHTML = photo ? `<img src="${photo}" alt="" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:1px solid #ddd;margin-right:12px;">` : `<div style="width:72px;height:72px;border-radius:50%;background:#0d1b4c;color:#fff;display:flex;align-items:center;justify-content:center;margin-right:12px;font:bold 14px Arial;">Photo</div>`;
+
+      const tags = (data.tags||[]).filter(Boolean).map(t=>`<span style="display:inline-block;border:1px solid #ddd;border-radius:6px;padding:4px 6px;margin:2px;font-size:11px">${t}</span>`).join(' ');
+
+      const sec = (title, leftTitle, leftBody, rightTitle, rightBody) => `
+        <h2 style="font:700 14px Arial;color:#0d1b4c;margin:16px 0 8px">${title}</h2>
+        <table style="width:100%;border-collapse:collapse;table-layout:fixed">
+          <tr>
+            <td style="width:50%;vertical-align:top;border:1px solid #ddd;padding:8px">
+              <div style="color:#c71f23;font-weight:700;margin-bottom:4px">${leftTitle}</div>
+              <div style="white-space:pre-wrap">${leftBody||'—'}</div>
+            </td>
+            <td style="width:50%;vertical-align:top;border:1px solid #ddd;padding:8px">
+              <div style="color:#c71f23;font-weight:700;margin-bottom:4px">${rightTitle}</div>
+              <div style="white-space:pre-wrap">${rightBody||'—'}</div>
+            </td>
+          </tr>
+        </table>`;
+
+      const html = `
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<title>Persona — ${data.p_name||'Unnamed'}</title>
 <style>
-  body{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#111;margin:20px}
-  h1{font-size:20px;color:#0d1b4c;margin:0 0 4px}
-  h2{font-size:16px;color:#0d1b4c;margin:16px 0 6px}
-  h3{font-size:14px;color:#c71f23;margin:10px 0 4px}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .cell{border:1px solid #e6e6e6;border-radius:8px;padding:8px}
-  .id{display:grid;grid-template-columns:160px 1fr;gap:12px}
-  .ph{width:160px;height:160px;border:1px solid #ddd;border-radius:10px;overflow:hidden}
-  .ph img{width:100%;height:100%;object-fit:cover}
+  body{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#111}
+  h1{font-size:18px;color:#0d1b4c;margin:0 0 8px}
   .muted{color:#666}
 </style>
 </head><body>
-  <h1>${name} <span class="muted">${behLabel ? '— '+behLabel : ''}</span></h1>
-  <div class="id">
-    <div class="ph">${photoDataURL ? `<img src="${photoDataURL}">` : ''}</div>
+  <div style="display:flex;align-items:center;margin-bottom:8px">
+    ${photoHTML}
     <div>
-      ${quote ? `<p><em>“${quote.replace(/"/g,'&quot;')}”</em></p>` : ''}
-      <p><strong>Date:</strong> ${date||'—'} &nbsp; <strong>Age:</strong> ${age||'—'} &nbsp; <strong>Pronouns:</strong> ${pronouns||'—'}</p>
-      <p><strong>Location:</strong> ${location||'—'} &nbsp; <strong>Occupation:</strong> ${role||'—'}</p>
-      <p><strong>Language(s):</strong> ${language||'—'} &nbsp; <strong>Household:</strong> ${household||'—'}</p>
+      <h1 style="margin:0">${data.p_name||'Persona'}</h1>
+      <div class="muted" style="font-style:italic">${data.p_quote||''}</div>
+      <div class="muted" style="margin-top:4px">
+        <strong>Team:</strong> ${data.p_team||'—'} &nbsp;|&nbsp;
+        <strong>Date:</strong> ${data.p_date||'—'} &nbsp;|&nbsp;
+        <strong>Demographic sketch:</strong> ${data.p_demo||'—'}
+      </div>
     </div>
   </div>
 
-  <h2>Background & story</h2>
-  <div class="cell">${field('background')}</div>
+  ${sec('Goals, context and routines','Primary goal',data.goal,'Pain points',data.pains)}
+  ${sec('','Context & scenario',data.context,'Success criteria',data.success)}
+  ${sec('','Behaviours & routines',data.behaviours,'Media & technology',data.media)}
+  ${sec('Decision influences and category use','Motivators & barriers',data.motivation,'Category use',data.category)}
+  ${sec('','Accessibility & constraints',data.constraints,'Moments of truth',data.moments)}
 
-  <h2>Goals, context and routines</h2>
-  <div class="grid">
-    <div class="cell">
-      <h3>Primary goal</h3>${field('primaryGoal')}
-      <h3>Context & scenario</h3>${field('context')}
-      <h3>Behaviours & routines</h3>${field('behaviours')}
-    </div>
-    <div class="cell">
-      <h3>Pain points</h3>${field('pains')}
-      <h3>Success criteria</h3>${field('success')}
-      <h3>Media & technology</h3>${field('mediaTech')}
-    </div>
-  </div>
-  <div class="grid" style="margin-top:10px">
-    <div class="cell"><h3>Category use</h3>${field('categoryUse')}</div>
-    <div class="cell"><h3>Triggers & moments</h3>${field('triggers')}</div>
-  </div>
-
-  <h2>Attitudes, motivations & barriers</h2>
-  <div class="grid">
-    <div class="cell"><h3>Motivations</h3>${field('motivations')}</div>
-    <div class="cell"><h3>Barriers</h3>${field('barriers')}</div>
-  </div>
-
-  <h2>Communication preferences</h2>
-  <div class="cell">${field('commPref')}</div>
-
-  <h2>Evidence sources / tags</h2>
+  <h2 style="font:700 14px Arial;color:#0d1b4c;margin:16px 0 8px">Evidence tags</h2>
   <div>${tags || '<em class="muted">No tags provided.</em>'}</div>
 </body></html>`;
 
-    const blob = new Blob(['\ufeff', html], {type:'application/msword;charset=utf-8'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    const safe = (name || 'persona').replace(/[^\w\-]+/g,'_');
-    a.download = `${safe}_persona.doc`;
-    document.body.appendChild(a);
-    a.click();
-    URL.revokeObjectURL(url);
-    a.remove();
-  });
-</script>
+      const blob = new Blob(['\ufeff', html], {type:'application/msword;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const safe = (data.p_name||'persona').replace(/[^\w\-]+/g,'_');
+      a.href = url; a.download = `${safe}_persona.doc`;
+      document.body.appendChild(a); a.click();
+      URL.revokeObjectURL(url); a.remove();
+    });
+  </script>
 </body>
 </html>
